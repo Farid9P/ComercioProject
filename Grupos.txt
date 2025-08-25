@@ -1,4 +1,4 @@
-1-Base con 200-300 casos desmentidos
+1-Base con 200-300 casos desmentidos (repositorio organizado de noticias, afirmaciones o rumores que ya fueron identificados como falsos (o engañosos) por verificadores confiables.)
 2-Udemy Business
 3-Chat GPT Empresa
 
