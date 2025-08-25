@@ -1,0 +1,16 @@
+1-Base con 200-300 casos desmentidos
+2-Udemy Business
+3-Chat GPT Empresa
+
+Backend:
+-Farid
+-Giancarlos
+Texto:
+-Abanto
+-Adrian
+Imagen:
+-Jahir
+-Fernando
+Audio:
+-Steven
+-Fabricio

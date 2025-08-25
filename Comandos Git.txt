@@ -1,0 +1,59 @@
+Comandos para moverse y ubicar:
+ls
+cd
+cd ..
+pwd
+mkdir "Nombre de la carpeta nueva"
+code .
+clear
+
+Comandos git dentro de local:
+git init (iniciar el control de versiones del proyecto)
+git branch -m main (cambiar el nombre de la rama a main)
+git status
+git add + nombre del archivo
+git add .
+git commit -m + "Este es mi primer commit"
+git log
+git config --global alias.tree "log --graph --decorate --all --oneline"
+git tree
+git checkout + código de la fotografía (situarse en un punto concreto, mover donde apunta head)
+git checkout + main (moverse a la ultima fotografía)
+git diff (ver los cambios antes de hacer la fotografía)
+git reset --hard + código de la fotografía (mover el master o main, supuestamente borras las fotografía posteriores al código, pero funciona para adelante si quieres volver)
+git reflog (log más completo)
+git tag + nombre del tag que pongas (si quieres marcar esa fotografía si es importante, marca al main)
+git tag (ver los tags)
+git checkout tags/nombre del tag que pongas (moverse al tag que quieres (el head)) 
+git branch + nombre de la nueva rama (comienza desde el ultimo main de la rama principal)
+git merge + main (juntar en la rama login las modificaciones en main) (hay conflictos si la gente de main y login modifican la misma linea de código)
+git switch + nombre de la nueva rama (ir a la nueva rama)
+git stash (un guardado temporal sin hacer commit)
+git stash list (ver los stash disponibles)
+git stash pop (recuperar todas las modificaciones)
+git stash drop (borrar lo que guardaste)
+git diff login (ver las diferencias con la rama login, tienes que estar en la rama main)
+git branch -d + nombre de la rama (eliminar una rama)
+
+
+Comandos git en el remoto (GitHub):
+
+El ReadMe es código Markdown
+"""Si  subes los archivos antes de crear el repositorio"
+git remote add origin git@github.com:Farid9P/NombredelRepositorio.git
+git push -u origin main (subir lo que esta en el local al remoto por primera vez)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+git push (para subir del local al remoto en cualquier momento)
+git push origin main
+git fetch (descargar los cambios en el remoto, pero aun no colocarlos en el local)
+git config pull.rebase false (va antes del pull de abajo)
+git pull origin main (descargar y colocar los cambios hechos en el remoto al local)
+git clone + código de GitHub SSH
+
+git flow:
+git flow init
+git flow feature start + nombre de la rama
+git flow feature finish + nombre de la rama
+
+------------------
+git push --set-upstream origin + nombre_rama
