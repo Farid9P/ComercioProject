@@ -1,16 +1,12 @@
 1-Base con 200-300 casos desmentidos (repositorio organizado de noticias, afirmaciones o rumores que ya fueron identificados como falsos (o engañosos) por verificadores confiables.)
 2-Udemy Business
-3-Chat GPT Empresa
+3-Gemini Pro
 
-Backend:
--Farid
--Giancarlos
-Texto:
--Abanto
--Adrian
-Imagen:
--Jahir
--Fernando
-Audio:
--Steven
--Fabricio
+Fase 1:
+Abanto, Nelson  y Erick
+Fase 2: 
+Farid y Giancarlos
+Fase 3:
+Fabricio y Steven
+Fase 4:
+Fernando y Adrian
