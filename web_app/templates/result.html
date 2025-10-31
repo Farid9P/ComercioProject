@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card p-4 shadow-sm">
+    <h3 class="mb-3">Resultado del análisis</h3>
+    
+    <p class="mb-1"><strong>Texto analizado:</strong></p>
+    <blockquote class="border-start border-4 border-primary ps-3 py-2 bg-light mb-3">
+        {{ afirmacion }}
+    </blockquote>
+
+    <p class="mb-1"><strong>Conclusión:</strong></p>
+    <div class="alert {{ resultado.veredicto_color_class | default('alert-secondary') }} mb-3" role="alert">
+        <h4 class="alert-heading">{{ resultado.veredicto_texto | default('Sin Veredicto') }}</h4>
+    </div>
+
+    <p class="mb-1"><strong>Nivel de coincidencia máximo:</strong></p>
+    <div class="progress mb-3" style="height: 25px;">
+        <div class="progress-bar {{ resultado.veredicto_color_class.replace('alert', 'bg') | default('bg-secondary') }}" 
+             role="progressbar" 
+             style="width: {{ resultado.similitud_porcentaje | default(0) }}%;" 
+             aria-valuenow="{{ resultado.similitud_porcentaje | default(0) }}" 
+             aria-valuemin="0" 
+             aria-valuemax="100">
+            <strong>{{ resultado.similitud_texto | default('0.00%') }}</strong>
+        </div>
+    </div>
+    
+    <p class="mb-1"><strong>Evidencia:</strong></p>
+    <div class="alert alert-light border">
+    {% if resultado.mensaje_explicativo %}
+        {{ resultado.mensaje_explicativo | safe }}
+    {% else %}
+        No se encontró información.
+    {% endif %}
+    </div>
+
+
+    <h5 class="mb-2 mt-3">Enlaces de Evidencia:</h5>
+    <ul class="list-group mb-4">
+        {% for e in evidencias %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ e.get('url', '#') }}" target="_blank">{{ e.get('title', e.get('titulo', 'Sin Título')) }}</a>
+                <span class="badge bg-secondary rounded-pill">{{ e.get('fuente', 'N/A') }}</span>
+            </li>
+        {% else %}
+            <li class="list-group-item text-muted">No se encontraron enlaces de evidencia relevantes.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/" class="btn btn-secondary mt-3">Volver</a>
+</div>
+{% endblock %}

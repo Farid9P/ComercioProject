@@ -1,0 +1,13 @@
+/* web_app/static/style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card {
+    border-radius: 12px;
+}
+blockquote {
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+}
