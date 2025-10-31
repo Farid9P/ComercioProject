@@ -1,0 +1,554 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:36:16"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:36:19"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:38:50"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:38:53"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:41:32"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:43:15"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:48:05"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:48:57"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:49:04"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:55:09"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:56:11"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 16:56:14"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 17:00:40"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 17:01:17"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 17:01:26"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 17:04:59"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 17:07:22"
+    },
+    {
+      "role": "system",
+      "content": "Iniciando sesión web del usuario.",
+      "timestamp": "2025-10-26 17:07:25"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:32:19"
+    },
+    {
+      "role": "system",
+      "content": "No hay noticias en la base de datos ni en vivo para comparar. Ejecuta los scrapers primero.",
+      "timestamp": "2025-10-27 23:32:19"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:32:23"
+    },
+    {
+      "role": "system",
+      "content": "No hay noticias en la base de datos ni en vivo para comparar. Ejecuta los scrapers primero.",
+      "timestamp": "2025-10-27 23:32:23"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra Postula a la presidencia",
+      "timestamp": "2025-10-27 23:35:49"
+    },
+    {
+      "role": "system",
+      "content": "No hay noticias 'en vivo' cargadas. Por favor, ve a la ruta `/recargar_noticias` en tu navegador y luego intenta analizar de nuevo.",
+      "timestamp": "2025-10-27 23:35:49"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra Postula a la presidencia",
+      "timestamp": "2025-10-27 23:38:17"
+    },
+    {
+      "role": "system",
+      "content": "⚠️ Ocurrió un error durante el análisis: object of type 'NoneType' has no len()",
+      "timestamp": "2025-10-27 23:38:17"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra Postula a la presidencia",
+      "timestamp": "2025-10-27 23:38:35"
+    },
+    {
+      "role": "system",
+      "content": "⚠️ Ocurrió un error durante el análisis: object of type 'NoneType' has no len()",
+      "timestamp": "2025-10-27 23:38:35"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra Postula a la presidencia",
+      "timestamp": "2025-10-27 23:42:12"
+    },
+    {
+      "role": "system",
+      "content": "Las fuentes de noticias (caché) están vacías. El sistema podría estar iniciándose.",
+      "timestamp": "2025-10-27 23:43:35"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:47:29"
+    },
+    {
+      "role": "system",
+      "content": "Las fuentes de noticias (caché) están vacías. El sistema podría estar iniciándose.",
+      "timestamp": "2025-10-27 23:48:39"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:50:33"
+    },
+    {
+      "role": "system",
+      "content": "Las fuentes de noticias (caché) están vacías. El sistema podría estar iniciándose.",
+      "timestamp": "2025-10-27 23:50:33"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:50:35"
+    },
+    {
+      "role": "system",
+      "content": "Las fuentes de noticias (caché) están vacías. El sistema podría estar iniciándose.",
+      "timestamp": "2025-10-27 23:50:35"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:54:24"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Martin Vizcarra postula a la presidencia\", mi veredicto es que parece ser VERDADERA ✅.\n\n**Nivel de coincidencia máximo:** 100.00%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Enrique Cornejo postulará a la secretaría general del Partido Aprista Peruano\n🔗 **Enlace:** https://larepublica.pe//impresa/politica/781640-enrique-cornejo-postulara-la-secretaria-general-del-partido-aprista-peruano\n",
+      "timestamp": "2025-10-27 23:54:26"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera encuestas de voto",
+      "timestamp": "2025-10-27 23:56:10"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera encuestas de voto\", mi veredicto es que parece ser VERDADERA ✅.\n\n**Nivel de coincidencia máximo:** 100.00%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Avanza País buscaría reinsertar “teoría del fraude” quitando a jefes de ONPE y JNE\n🔗 **Enlace:** https://larepublica.pe//politica/congreso/2023/01/04/avanza-pais-buscaria-reinsertar-teoria-del-fraude-quitando-a-jefes-de-onpe-y-jne-piero-corvetto-jorge-salas-congreso\n",
+      "timestamp": "2025-10-27 23:56:11"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-27 23:58:44"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Martin Vizcarra postula a la presidencia\", mi veredicto es que parece ser VERDADERA ✅.\n\n**Nivel de coincidencia máximo:** 100.00%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Enrique Cornejo postulará a la secretaría general del Partido Aprista Peruano\n🔗 **Enlace:** https://larepublica.pe//impresa/politica/781640-enrique-cornejo-postulara-la-secretaria-general-del-partido-aprista-peruano\n",
+      "timestamp": "2025-10-27 23:58:45"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-28 00:02:49"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Martin Vizcarra postula a la presidencia\", mi veredicto es que parece ser VERDADERA ✅.\n\n**Nivel de coincidencia máximo:** 100.00%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Enrique Cornejo postulará a la secretaría general del Partido Aprista Peruano\n🔗 **Enlace:** https://larepublica.pe//impresa/politica/781640-enrique-cornejo-postulara-la-secretaria-general-del-partido-aprista-peruano\n",
+      "timestamp": "2025-10-28 00:02:50"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera encuestas de voto",
+      "timestamp": "2025-10-28 00:03:37"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera encuestas de voto\", mi veredicto es que parece ser VERDADERA ✅.\n\n**Nivel de coincidencia máximo:** 100.00%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Avanza País buscaría reinsertar “teoría del fraude” quitando a jefes de ONPE y JNE\n🔗 **Enlace:** https://larepublica.pe//politica/congreso/2023/01/04/avanza-pais-buscaria-reinsertar-teoria-del-fraude-quitando-a-jefes-de-onpe-y-jne-piero-corvetto-jorge-salas-congreso\n",
+      "timestamp": "2025-10-28 00:03:38"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera las encuestas",
+      "timestamp": "2025-10-28 00:09:02"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera las encuestas\", mi veredicto es que podría ser FALSA o estar SACADA DE CONTEXTO ❌.\n\n**Nivel de coincidencia máximo:** 18.59%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Curwen asegura que votaría hasta por una bolsa de Cuates antes que por Keiko Fujimori en las elecciones: \"Yo voto\"\n🔗 **Enlace:** https://larepublica.pe//streamers/2025/06/03/curwen-asegura-que-votaria-hasta-por-una-bolsa-de-cuates-antes-que-por-keiko-fujimori-en-las-elecciones-yo-voto-272496\n",
+      "timestamp": "2025-10-28 00:09:03"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera encuestas de voto",
+      "timestamp": "2025-10-28 00:19:40"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera encuestas de voto\", mi veredicto es que podría ser FALSA o estar SACADA DE CONTEXTO ❌.\n\n**Nivel de coincidencia máximo:** 25.99%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Frepap desplaza a Fuerza Popular en intención de voto para el Congreso\n🔗 **Enlace:** https://larepublica.pe//elecciones/2021/03/30/frepap-desplaza-a-fuerza-popular-en-intencion-de-voto-para-el-congreso-pltc\n",
+      "timestamp": "2025-10-28 00:19:42"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera las encuestas de votos",
+      "timestamp": "2025-10-28 00:57:17"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera las encuestas de votos\", mi veredicto es que podría ser FALSA o estar SACADA DE CONTEXTO ❌.\n\n**Nivel de coincidencia máximo:** 29.51%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** Vacan a Dina Boluarte: cuántos votos se alcanzó y qué bancadas del Congreso apoyaron la moción\n🔗 **Enlace:** https://larepublica.pe//politica/2025/10/10/vacan-a-dina-boluarte-cuantos-votos-se-alcanzo-y-que-bancadas-del-congreso-apoyaron-la-mocion-hnews-345100\n",
+      "timestamp": "2025-10-28 00:57:19"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera las encuestas de intención de voto",
+      "timestamp": "2025-10-28 01:00:10"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera las encuestas de intención de voto\", mi veredicto es que podría ser FALSA o SACADA DE CONTEXTO ❌.\n\n**Nivel de coincidencia máximo:** 34.54%\n\nNo he encontrado ninguna noticia en nuestra base de datos que coincida lo suficiente como para ser considerada una evidencia relevante.\n",
+      "timestamp": "2025-10-28 01:00:11"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera las encuestas de intención de voto",
+      "timestamp": "2025-10-28 01:02:06"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Keiko Fujimori lidera las encuestas de intención de voto\", mi veredicto es que podría ser FALSA o SACADA DE CONTEXTO ❌.\n\n**Nivel de coincidencia máximo:** 34.54%\n\nNo he encontrado ninguna noticia en nuestra base de datos que coincida lo suficiente como para ser considerada una evidencia relevante.\n",
+      "timestamp": "2025-10-28 01:02:08"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la precidencia",
+      "timestamp": "2025-10-28 01:04:24"
+    },
+    {
+      "role": "system",
+      "content": "Tras analizar tu afirmación: \"Martin Vizcarra postula a la precidencia\", mi veredicto es que es DUDOSA ⚠️.\n\n**Nivel de coincidencia máximo:** 42.71%\n\n**Evidencia encontrada (La República (DB)):**\n📰 **Titular:** ¿Quién es Mario Vizcarra? El hermano de Martín Vizcarra que postularía a la Presidencia del Perú en las Elecciones del 2026\n🔗 **Enlace:** https://larepublica.pe//politica/2025/10/27/quien-es-mario-vizcarra-el-hermano-de-martin-vizcarra-que-postularia-a-la-presidencia-del-peru-en-las-elecciones-del-2026-hnews-655911\n",
+      "timestamp": "2025-10-28 01:04:25"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la precidencia",
+      "timestamp": "2025-10-28 01:08:11"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-28 01:08:13"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori lidera las encuestas de intención de votos",
+      "timestamp": "2025-10-28 01:43:09"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-28 01:43:11"
+    },
+    {
+      "role": "user",
+      "content": "Pedro Castillo fue puesto en libertad",
+      "timestamp": "2025-10-28 01:43:34"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-28 01:43:36"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia",
+      "timestamp": "2025-10-28 01:43:56"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-28 01:43:57"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga lidera encuestas de intención de votos",
+      "timestamp": "2025-10-28 01:44:34"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-28 01:44:35"
+    },
+    {
+      "role": "user",
+      "content": "Rafael López Aliaga renunció a la alcaldía de Lima",
+      "timestamp": "2025-10-28 01:46:02"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-28 01:46:03"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga lidera la encuesta de intención de voto",
+      "timestamp": "2025-10-28 12:31:23"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-28 12:31:25"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga lidera la encuesta de intención de voto",
+      "timestamp": "2025-10-28 16:11:02"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-28 16:11:07"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de lima",
+      "timestamp": "2025-10-28 16:37:29"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-28 16:37:33"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra se postulará para las elecciones 2026",
+      "timestamp": "2025-10-28 18:07:15"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-28 18:07:17"
+    },
+    {
+      "role": "user",
+      "content": "Es cierto que Martin Vizcarra va a postular a la presidencia de las elecciones de 2026?",
+      "timestamp": "2025-10-28 19:49:33"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-28 19:49:37"
+    },
+    {
+      "role": "user",
+      "content": "Rafael lopez aliaga renuncia a la alcadía de Lima",
+      "timestamp": "2025-10-28 19:54:03"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-28 19:54:04"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de lima para postular a las elecciones de 2026",
+      "timestamp": "2025-10-30 03:29:52"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga renunció a la alcaldía de Lima",
+      "timestamp": "2025-10-30 03:30:45"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 03:34:29"
+    },
+    {
+      "role": "user",
+      "content": "Rafael lopez aliaga renuncia a la alcaldía de lima",
+      "timestamp": "2025-10-30 03:40:07"
+    },
+    {
+      "role": "user",
+      "content": "Rafael lopez aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 03:48:36"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 03:53:33"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 03:55:10"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 04:00:05"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 04:00:50"
+    },
+    {
+      "role": "user",
+      "content": "rafael lopez aliaga renuncia a la alcaldia de lima",
+      "timestamp": "2025-10-30 11:51:51"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 11:58:00"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 12:01:05"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 12:07:01"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-30 12:07:04"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 12:12:44"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-30 12:12:47"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 12:25:12"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-30 12:25:15"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 12:25:20"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-30 12:25:22"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima",
+      "timestamp": "2025-10-30 12:29:04"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-30 12:29:07"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anuncia su candidatura para las elecciones de 2026",
+      "timestamp": "2025-10-30 19:33:36"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-30 19:33:39"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldía de Lima para postular a las elecciones de 2026",
+      "timestamp": "2025-10-30 23:05:37"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-30 23:05:41"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postula a la presidencia para las elecciones de 2026",
+      "timestamp": "2025-10-30 23:17:18"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-30 23:17:21"
+    }
+  ]
+}
