@@ -1,230 +1,188 @@
+# news_scrapers/elperuano_scraper.py
+# -*- coding: utf-8 -*-
+
 import requests
 import json
 import os
-import re
 import time
 import datetime
+import re
+from tqdm import tqdm
+import unicodedata
 
-# --- Configuración ---
+# --- CONFIGURACIÓN EXACTA DESCUBIERTA ---
+# Endpoint descubierto: https://elperuano.pe/portal/_SearchNews
 API_URL = "https://elperuano.pe/portal/_SearchNews"
-BASE_URL = "https://elperuano.pe/"
-PAGE_SIZE = 10
-PAGE_LIMIT = 5
-# --- ¡CAMBIO! Apuntar al archivo JSON principal ---
-OUTPUT_FILE = "news_scrapers/noticias_partidos.json" 
+DEFAULT_OUTPUT = "news_scrapers/noticias_partidos.json"
+START_DATE_LIMIT = datetime.datetime(2025, 1, 1)
 
-# Solo se guardarán noticias desde esta fecha en adelante.
-START_DATE_LIMIT = datetime.datetime(2025, 1, 1, tzinfo=datetime.timezone.utc)
+# Parámetros de la API
+PAGE_SIZE = 50  # Pedimos 30 de golpe para ir rápido
+MAX_PAGES = 10  # Buscar en las primeras 2 páginas (60 noticias por término)
 
-# Keywords para buscar (puedes usar las mismas que La República o unas específicas)
+# --- LISTA COMPLETA DE KEYWORDS ---
 KEYWORDS = [
-    # Partidos (y siglas comunes)
-    'Acción Popular',
-    'Ahora Nación',
-    'Alianza para el Progreso', 'APP',
-    'Avanza País',
-    'Batalla Perú',
-    'Fe en el Perú',
-    'Frente Popular Agrícola', 'FREPAP',
-    'Fuerza Popular',
-    'Juntos por el Perú',
-    'Libertad Popular',
-    'Nuevo Perú',
-    'Partido Aprista Peruano', 'APRA',
-    'Ciudadanos por el Perú',
-    'Partido Cívico Obras',
-    'Partido de los Trabajadores y Emprendedores', 'PTE-Perú',
-    'Partido del Buen Gobierno',
-    'Partido Demócrata Unido Perú',
-    'Partido Demócrata Verde',
-    'Partido Democrático Federal',
-    'Somos Perú',
-    'Partido Frente de la Esperanza 2021',
-    'Partido Morado',
-    'Partido País para Todos',
-    'Partido Patriótico del Perú',
-    'Partido Político Cooperación Popular',
-    'Partido Político Fuerza Moderna',
-    'Partido Político Integridad Democrática',
-    'Partido Político Nacional Perú Libre', 'Perú Libre',
-    'Partido Político Perú Acción',
-    'Partido Político Perú Primero',
-    'Partido Político Peruanos Unidos: ¡Somos Libres!', 'Somos Libres',
-    'Partido Político Popular Voces del Pueblo',
-    'Partido Político PRIN',
-    'Partido Popular Cristiano', 'PPC',
-    'Partido SiCreo',
-    'Partido Unidad y Paz',
-    'Perú Moderno',
-    'Podemos Perú',
-    'Primero la Gente',
-    'Progresemos',
-    'Renovación Popular',
-    'Salvemos al Perú',
-    'Un Camino Diferente',
-
-    # Involucrados clave
-    'Keiko Fujimori',
-    'Vladimir Cerrón',
-    'Rafael López Aliaga',
-    'César Acuña',
-    'Dina Boluarte',
-    'Pedro Castillo',
-    
-    # Términos generales
-    'elecciones perú',
-    'ONPE',
-    'JNE',
-    'encuestas'
+    'Acción Popular', 'Ahora Nación', 'Alianza para el Progreso', 'APP',
+    'Avanza País', 'Batalla Perú', 'Fe en el Perú', 'Frente Popular Agrícola', 'FREPAP',
+    'Fuerza Popular', 'Juntos por el Perú', 'Libertad Popular', 'Nuevo Perú',
+    'Partido Aprista Peruano', 'APRA', 'Ciudadanos por el Perú', 'Partido Cívico Obras',
+    'Partido de los Trabajadores y Emprendedores', 'PTE-Perú', 'Partido del Buen Gobierno',
+    'Partido Demócrata Unido Perú', 'Partido Demócrata Verde', 'Partido Democrático Federal',
+    'Somos Perú', 'Partido Frente de la Esperanza 2021', 'Partido Morado',
+    'Partido Patriótico del Perú', 'Partido Político Perú Primero', 'Perú Libre',
+    'Perú Moderno', 'Podemos Perú', 'Primero La Gente', 'Progresemos',
+    'Renovación Popular', 'Salvemos al Perú', 'Sicuy', 'Voces del Pueblo', 
+    'Agustin Lozano', 'Keiko Fujimori', 'Rafael López Aliaga', 'César Acuña', 
+    'Dina Boluarte', 'Congreso de la República', 'Fiscalía de la Nación',
+    'Juan José Santiváñez', 'Patricia Benavides', 'Junta Nacional de Justicia',
+    'Antauro Humala', 'Guido Bellido', 'Vladimir Cerrón', 'Martín Vizcarra',
+    'Hernando de Soto', 'Verónika Mendoza', 'Francisco Sagasti', 'Pedro Castillo',
+    'Alberto Otárola', 'Aníbal Torres', 'Defensoría del Pueblo', 'JNJ', 'Carlos Alvarez', 
+    'elecciones Perú', 'Jurado Nacional de Elecciones', 'Datum', 'IPSOS', 'ONPE', 'Jose Jerí', 'Presidencia de la República', 'encuestas perú'
 ]
 
-# --- Funciones Auxiliares ---
+def load_db(path):
+    if os.path.exists(path):
+        try:
+            with open(path, 'r', encoding='utf-8') as f: return json.load(f)
+        except: return {}
+    return {}
 
-def _parse_elperuano_date(date_str):
-    """Convierte el formato /Date(timestamp)/ a datetime."""
-    if not date_str: return None
-    match = re.search(r"\((\d+)\)", date_str)
-    if not match: return None
+def save_db(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+def parse_microsoft_date(date_str):
+    """
+    Parsea la fecha del JSON: /Date(1763442000000)/
+    """
     try:
-        timestamp_ms = int(match.group(1))
-        return datetime.datetime.fromtimestamp(timestamp_ms / 1000, tz=datetime.timezone.utc)
-    except (ValueError, TypeError):
-        return None
+        match = re.search(r'(\d+)', str(date_str))
+        if match:
+            timestamp_ms = int(match.group(1))
+            return datetime.datetime.fromtimestamp(timestamp_ms / 1000.0)
+    except Exception:
+        pass
+    return None
 
-def cargar_noticias_existentes(archivo):
-    """Carga el JSON principal. Devuelve {} si no existe o está corrupto."""
-    if not os.path.exists(archivo):
-        return {}
-    try:
-        with open(archivo, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except json.JSONDecodeError:
-        print(f"Advertencia: El archivo principal {archivo} está corrupto. Se iniciará/continuará desde cero.")
-        return {}
+def clean_slug_text(text):
+    """
+    Genera un slug para la URL (ej: "Título de Noticia" -> "titulo-de-noticia")
+    """
+    if not text: return "noticia"
+    # Normalizar tildes
+    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore')
+    # Quitar caracteres raros
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text).strip().lower()
+    # Reemplazar espacios por guiones
+    return re.sub(r'\s+', '-', text)
 
-def guardar_noticias(archivo, datos):
-    """Guarda el diccionario de noticias actualizado en el archivo JSON principal."""
-    try:
-        os.makedirs(os.path.dirname(archivo), exist_ok=True)
-        with open(archivo, 'w', encoding='utf-8') as f:
-            json.dump(datos, f, indent=4, ensure_ascii=False)
-        # --- ¡CAMBIO! Mensaje actualizado ---
-        print(f"\n¡Éxito! Base de datos principal ({archivo}) actualizada con noticias de El Peruano.")
-    except IOError as e:
-        print(f"\nError al escribir en el archivo {archivo}: {e}")
+def main(json_path=DEFAULT_OUTPUT):
+    print(f"\n📰 [El Peruano - API GET] Iniciando. Filtro > {START_DATE_LIMIT.strftime('%d/%m/%Y')}")
+    
+    db = load_db(json_path)
+    nuevas_totales = 0
+    
+    # Headers normales de navegador
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    }
 
-# --- Función Principal ---
+    barra = tqdm(KEYWORDS, unit="term")
 
-def main():
-    """Función principal del scraper stateful de El Peruano, actualizando el JSON principal."""
-    print("--- Iniciando scraper de El Peruano (Actualizando JSON principal) ---")
-
-    noticias_guardadas = cargar_noticias_existentes(OUTPUT_FILE)
-    print(f"Se cargaron {len(noticias_guardadas)} noticias existentes desde {OUTPUT_FILE}.")
-
-    nuevas_noticias_elperuano = 0
-
-    for query in KEYWORDS:
-        print(f"\n--- [El Peruano] Buscando término: '{query}' (desde {START_DATE_LIMIT.date()}) ---")
-
-        for page_num in range(1, PAGE_LIMIT + 1):
-
-            # --- CORRECTION: Initialize HERE, before the try block ---
-            nuevas_en_esta_pagina = 0
-            # ---------------------------------------------------------
-
+    for query in barra:
+        barra.set_description(f"🔎 {query[:15]:<15}")
+        
+        for page in range(1, MAX_PAGES + 1):
+            # --- PARÁMETROS EXACTOS SEGÚN TU LINK ---
+            # Link: https://elperuano.pe/portal/_SearchNews?pageIndex=1&pageSize=10&claves=onpe
             params = {
-                'pageIndex': page_num,
-                'pageSize': PAGE_SIZE,
-                'claves': query
+                "pageIndex": page,
+                "pageSize": PAGE_SIZE,
+                "claves": query
             }
-
-            print(f"Obteniendo [El Peruano]: Página {page_num} para '{query}'...")
-
+            
             try:
-                response = requests.get(API_URL, params=params, timeout=15)
-                response.raise_for_status()
-                articulos_api = response.json()
-
-                if not isinstance(articulos_api, list) or not articulos_api:
-                    print(f"No se encontraron más resultados [El Peruano] para '{query}'.")
+                # Petición GET (No POST)
+                response = requests.get(API_URL, params=params, headers=headers, timeout=10)
+                
+                if response.status_code != 200:
+                    break
+                
+                try:
+                    lista_articulos = response.json()
+                except:
                     break
 
-                # Initialization moved outside/above the 'try' block
-                # nuevas_en_esta_pagina = 0 # <-- REMOVED FROM HERE
-                all_articles_on_page_are_old = True
+                # La API devuelve la lista directamente, no anidada
+                if not lista_articulos or not isinstance(lista_articulos, list):
+                    break
+                
+                count_page = 0
+                
+                for item in lista_articulos:
+                    try:
+                        # 1. Extracción basada en tu archivo elperuano.json
+                        art_id = str(item.get('intNoticiaId', ''))
+                        titulo = item.get('vchTitulo', '').strip()
+                        fecha_raw = item.get('dtmFecha', '')
+                        
+                        # 2. Fecha
+                        date_obj = parse_microsoft_date(fecha_raw)
+                        
+                        es_reciente = False
+                        date_str = ""
+                        
+                        if date_obj:
+                            date_str = date_obj.strftime("%Y-%m-%d %H:%M:%S")
+                            if date_obj >= START_DATE_LIMIT:
+                                es_reciente = True
+                        
+                        if not es_reciente:
+                            continue
 
-                for articulo in articulos_api:
-                    article_id_int = articulo.get('intNoticiaId')
-                    article_date_obj = _parse_elperuano_date(articulo.get('dtmFecha'))
-
-                    if not article_id_int or not article_date_obj:
-                        continue
-
-                    if article_date_obj >= START_DATE_LIMIT:
-                        all_articles_on_page_are_old = False
-                        article_id_str_prefixed = f"elperuano_{article_id_int}"
-
-                        if article_id_str_prefixed not in noticias_guardadas:
-                            url_slug = articulo.get("URLFriendLy", "").lstrip('/')
-                            full_url = BASE_URL + url_slug
-                            noticia_para_guardar = {
-                                "_id": article_id_str_prefixed,
-                                "title": articulo.get("vchTitulo"),
-                                "type": "article",
-                                "date": article_date_obj.strftime('%Y-%m-%d %H:%M:%S'),
-                                "update_date": article_date_obj.strftime('%Y-%m-%d %H:%M:%S'),
-                                "created_at": article_date_obj.strftime('%Y-%m-%d %H:%M:%S'),
-                                "slug": url_slug,
-                                "data": {
-                                    "__typename": "ArticleDataType",
-                                    "teaser": articulo.get("vchBajada") or articulo.get("vchDescripcion"),
-                                    "authors": [],
-                                    "tags": [{'__typename': 'TagType', 'name': query, 'slug': f'/tag/{query.lower()}'}],
-                                    "categories": [{'__typename': 'CategoryReferenceType', 'name': articulo.get('Seccion', 'Desconocida'), 'slug': f"/{articulo.get('Seccion', 'desconocida').lower()}"}],
-                                    "multimedia": [{
-                                        "__typename": 'MultimediaType',
-                                        "type": "image",
-                                        "path": articulo.get("vchRutaCompletaFotografia"),
-                                        "data": {
-                                            "__typename": "MultimediaDataType",
-                                            "title": articulo.get("vchTitulo"),
-                                            "alt": articulo.get("vchTitulo"),
-                                        }
-                                    }]
-                                },
-                                "metadata_seo": {"keywords": query},
-                                "metadata": [{"key": "source", "value": "El Peruano"}],
-                                "has_video": False
+                        # 3. Construir URL (Formato: elperuano.pe/noticia/ID-TITULO)
+                        slug_txt = clean_slug_text(titulo)
+                        url_full = f"https://elperuano.pe/noticia/{art_id}-{slug_txt}"
+                        
+                        # 4. Guardar
+                        unique_id = f"ep_{art_id}"
+                        
+                        if unique_id not in db:
+                            # 'vchBajada' suele ser el resumen corto, 'vchDescripcion' el largo
+                            teaser = item.get('vchBajada', '') or item.get('vchDescripcion', '')
+                            
+                            db[unique_id] = {
+                                "_id": unique_id,
+                                "title": titulo,
+                                "slug": url_full,
+                                "date": date_str,
+                                "data": {"teaser": teaser},
+                                "metadata": [
+                                    {"key": "source", "value": "El Peruano"},
+                                    {"key": "query", "value": query}
+                                ]
                             }
-                            nuevas_en_esta_pagina += 1
-                            noticias_guardadas[article_id_str_prefixed] = noticia_para_guardar
-                    else:
-                        pass
-
-                # This line is now safe, nuevas_en_esta_pagina always exists
-                nuevas_noticias_elperuano += nuevas_en_esta_pagina
-                print(f"Resultados [El Peruano]: {nuevas_en_esta_pagina} noticias nuevas (de 2025) añadidas al JSON principal.")
-
-                if all_articles_on_page_are_old and articulos_api:
-                    print(f"-> Página completa de artículos antiguos [El Peruano]. Deteniendo búsqueda para '{query}'.")
+                            nuevas_totales += 1
+                            count_page += 1
+                            
+                    except Exception:
+                        continue
+                
+                # Si toda la página es antigua, paramos de buscar este término
+                if count_page == 0:
                     break
+                    
+                time.sleep(0.2)
 
-                time.sleep(1)
+            except Exception:
+                break
+        
+        barra.set_postfix(nuevas=nuevas_totales)
 
-            except requests.exceptions.RequestException as e:
-                print(f"Error al conectar con la API de El Peruano para '{query}': {e}")
-                # The loop continues to the next page_num, but nuevas_en_esta_pagina will be 0 (correct)
-            except json.JSONDecodeError:
-                print(f"Error: La respuesta de la API de El Peruano para '{query}' no fue JSON.")
-                # The loop continues, nuevas_en_esta_pagina will be 0 (correct)
-            # --- We no longer break here on error, just report and try next page ---
-
-    print("\n--- Scraping de El Peruano completado ---")
-    print(f"Total de noticias NUEVAS de El Peruano (de 2025) agregadas en esta ejecución: {nuevas_noticias_elperuano}")
-    print(f"Total de noticias en la base de datos principal ahora: {len(noticias_guardadas)}")
-
-    guardar_noticias(OUTPUT_FILE, noticias_guardadas)
+    print(f"\n✅ [El Peruano] Finalizado. {nuevas_totales} noticias nuevas agregadas.")
+    save_db(json_path, db)
 
 if __name__ == "__main__":
     main()

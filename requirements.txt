@@ -1,0 +1,16 @@
+# requirements.txt
+
+# ─── Core ML / NLP ───
+scikit-learn==1.5.2
+numpy==1.26.4
+joblib==1.4.2
+
+# ─── Web scraping ───
+requests==2.32.3
+beautifulsoup4==4.12.3
+
+# ─── Limpieza / Utilidades ───
+unicodedata2==15.1.0
+
+# ─── (Opcional) CLI colores ───
+colorama==0.4.6
