@@ -549,6 +549,466 @@
       "role": "system",
       "content": "ES DUDOSA ⚠️",
       "timestamp": "2025-10-30 23:17:21"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori postulará a las elecciones 2026",
+      "timestamp": "2025-10-31 13:13:12"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 13:13:14"
+    },
+    {
+      "role": "user",
+      "content": "Acuña participara en las elecciones 2026?",
+      "timestamp": "2025-10-31 13:50:24"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 13:50:27"
+    },
+    {
+      "role": "user",
+      "content": "Las elecciones se daran en el año 2026?",
+      "timestamp": "2025-10-31 13:51:16"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 13:51:19"
+    },
+    {
+      "role": "user",
+      "content": "Cesar Acuña postulará a las elecciones 2026",
+      "timestamp": "2025-10-31 13:55:28"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 13:55:31"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga",
+      "timestamp": "2025-10-31 13:57:07"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 13:57:11"
+    },
+    {
+      "role": "user",
+      "content": "Lopez Aliaga renunció a la alcaldía de Lima",
+      "timestamp": "2025-10-31 13:58:57"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 13:59:01"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia la alcaldía de LIma",
+      "timestamp": "2025-10-31 13:59:57"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:00:00"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga renunciara a la alcaldia de Lima",
+      "timestamp": "2025-10-31 14:00:51"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:00:54"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga renunciara a la alcaldia de LIma",
+      "timestamp": "2025-10-31 14:01:21"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:01:24"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:01:55"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:01:58"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:02:06"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:02:09"
+    },
+    {
+      "role": "user",
+      "content": "Pedro Castillo postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:03:38"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 14:03:41"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra Postulará a las elecciones presidenciales 2026",
+      "timestamp": "2025-10-31 14:04:17"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 14:04:19"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anuncia su candidatura a las elecciones 2026",
+      "timestamp": "2025-10-31 14:04:44"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:04:47"
+    },
+    {
+      "role": "user",
+      "content": "Cesar Acuña",
+      "timestamp": "2025-10-31 14:05:17"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:05:20"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga lidera la intención de voto en las encuestas",
+      "timestamp": "2025-10-31 14:05:53"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:05:55"
+    },
+    {
+      "role": "user",
+      "content": "Cesar Acuña elecciones",
+      "timestamp": "2025-10-31 14:07:01"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:07:04"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postulara a las elecciones 2026?",
+      "timestamp": "2025-10-31 14:07:25"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:07:28"
+    },
+    {
+      "role": "user",
+      "content": "Martin Vizcarra postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:20:25"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:20:27"
+    },
+    {
+      "role": "user",
+      "content": "Cesar Acuña postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:20:49"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 14:20:51"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anuncio su candidatura a las elecciones 2026",
+      "timestamp": "2025-10-31 14:21:21"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:21:22"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:29:40"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:29:42"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anunció su candidatura a las elecciones presidenciales 2026",
+      "timestamp": "2025-10-31 14:30:14"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:30:15"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anunció su candidatura a las elecciones presidenciales 2026",
+      "timestamp": "2025-10-31 14:30:22"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:30:23"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anunció su candidatura a las elecciones presidenciales 2026",
+      "timestamp": "2025-10-31 14:30:26"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:30:27"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anuncia su candidatura para las elecciones presidenciales 2026",
+      "timestamp": "2025-10-31 14:33:20"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:33:22"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anuncia su candidatura para las elecciones presidenciales 2026",
+      "timestamp": "2025-10-31 14:33:27"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:33:29"
+    },
+    {
+      "role": "user",
+      "content": "Kaiko Fujimori anuncia su candidatura a las elecciones 2026",
+      "timestamp": "2025-10-31 14:35:41"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 14:35:42"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga renuncia a la alcaldia de LIma",
+      "timestamp": "2025-10-31 14:36:22"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:36:23"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura",
+      "timestamp": "2025-10-31 14:39:07"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:39:09"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura",
+      "timestamp": "2025-10-31 14:39:15"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:39:17"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura",
+      "timestamp": "2025-10-31 14:39:19"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:39:20"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura",
+      "timestamp": "2025-10-31 14:45:48"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:45:49"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori anuncio su candidatura a las elecciones 2026",
+      "timestamp": "2025-10-31 14:46:57"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:47:01"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura",
+      "timestamp": "2025-10-31 14:47:34"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:47:37"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori sera candidata a las elecciones 2026",
+      "timestamp": "2025-10-31 14:48:02"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 14:48:05"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de Lima",
+      "timestamp": "2025-10-31 14:48:25"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:48:27"
+    },
+    {
+      "role": "user",
+      "content": "Pedro Castillo será candidato a las elecciones 2026",
+      "timestamp": "2025-10-31 14:49:00"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:49:02"
+    },
+    {
+      "role": "user",
+      "content": "Pedro Castillo sera candidato a las elecciones 2026",
+      "timestamp": "2025-10-31 14:49:50"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:49:52"
+    },
+    {
+      "role": "user",
+      "content": "Cesar Acuña postulara a las elecciones 2026",
+      "timestamp": "2025-10-31 14:50:17"
+    },
+    {
+      "role": "system",
+      "content": "PODRÍA SER FALSA O SACADA DE CONTEXTO ❌",
+      "timestamp": "2025-10-31 14:50:18"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez aliaga renuncio a la alcaldia de lima?",
+      "timestamp": "2025-10-31 14:52:18"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 14:52:19"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura presidencial?",
+      "timestamp": "2025-10-31 14:53:17"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 14:53:19"
+    },
+    {
+      "role": "user",
+      "content": "Keiko Fujimori oficializa su cuarta candidatura  a las elecciones 2026",
+      "timestamp": "2025-10-31 15:11:00"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-10-31 15:11:02"
+    },
+    {
+      "role": "user",
+      "content": "Rafael Lopez Aliaga renuncia a la alcaldia de Lima",
+      "timestamp": "2025-10-31 15:12:54"
+    },
+    {
+      "role": "system",
+      "content": "PARECE SER VERDADERA ✅",
+      "timestamp": "2025-10-31 15:12:56"
+    },
+    {
+      "role": "user",
+      "content": "Es verdad que Pedro Castillo postulará a la presidencia 2026?",
+      "timestamp": "2025-11-11 17:15:58"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-11-11 17:16:06"
+    },
+    {
+      "role": "user",
+      "content": "Es verdad que Pedro Castillo postulará a la presidencia 2026?",
+      "timestamp": "2025-11-11 17:16:29"
+    },
+    {
+      "role": "system",
+      "content": "ES DUDOSA ⚠️",
+      "timestamp": "2025-11-11 17:16:36"
     }
   ]
 }

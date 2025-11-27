@@ -1,13 +1,215 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class="card p-4 shadow-sm">
-    <h3 class="text-center">Verifica una noticia o texto</h3>
-    <form action="/analizar" method="POST">
-        <textarea name="texto" rows="5" class="form-control mt-3" placeholder="Escribe aquí la noticia o texto..."></textarea>
-        <button class="btn btn-primary mt-3 w-100">Analizar</button>
-    </form>
-    {% if error %}
-        <div class="alert alert-danger mt-3">{{ error }}</div>
-    {% endif %}
+<div id="loadingOverlay" style="display: none;">
+    <span class="loader mb-3"></span>
+    <h4 class="text-primary fw-bold animation-pulse">Analizando Veracidad...</h4>
+    <p class="text-muted">Consultando fuentes y procesando contexto</p>
 </div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        
+        <div class="text-center mb-4 fade-in-up">
+            <img src="{{ url_for('static', filename='logo.png') }}" 
+                 alt="Logo" 
+                 class="mb-3 logo-img" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <i class="fa-solid fa-brain text-primary fa-4x mb-3" style="display:none;"></i>
+            
+            <h1 class="display-6 fw-bold text-dark">Verificador de Noticias IA</h1>
+            <p class="text-secondary">Pega una noticia, sube una captura o un audio para verificarlo.</p>
+        </div>
+
+        <div class="custom-card p-4 p-md-5 mb-5 fade-in-up" style="animation-delay: 0.2s;">
+            
+            <ul class="nav nav-pills nav-fill mb-4 p-1 bg-light rounded-pill border" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-pill" id="pills-text-tab" data-bs-toggle="pill" data-bs-target="#pills-text" type="button" role="tab">
+                        <i class="fa-solid fa-align-left me-2"></i>Texto
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill" id="pills-image-tab" data-bs-toggle="pill" data-bs-target="#pills-image" type="button" role="tab">
+                        <i class="fa-solid fa-image me-2"></i>Imagen
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill" id="pills-audio-tab" data-bs-toggle="pill" data-bs-target="#pills-audio" type="button" role="tab">
+                        <i class="fa-solid fa-microphone me-2"></i>Audio
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-text" role="tabpanel">
+                    <textarea 
+                        id="inputAfirmacion" 
+                        rows="3" 
+                        class="form-control form-control-lg shadow-none" 
+                        placeholder="Ej: 'El congreso aprobó una ley para reducir impuestos a mineras...'"
+                    ></textarea>
+                </div>
+
+                <div class="tab-pane fade" id="pills-image" role="tabpanel">
+                    <div class="upload-zone text-center p-5 rounded-4 cursor-pointer" onclick="document.getElementById('fileImage').click()">
+                        <i class="fa-solid fa-cloud-arrow-up text-primary fs-1 mb-3 opacity-50"></i>
+                        <h6 class="fw-bold">Sube una captura de noticia</h6>
+                        <p class="small text-muted mb-0">Soporta JPG, PNG</p>
+                        <input type="file" id="fileImage" class="d-none" accept="image/*" onchange="previewFile('fileImage', 'imgPreviewName')">
+                        <p id="imgPreviewName" class="text-primary mt-2 fw-bold small"></p>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-audio" role="tabpanel">
+                    <div class="upload-zone text-center p-5 rounded-4 cursor-pointer" onclick="document.getElementById('fileAudio').click()">
+                        <i class="fa-solid fa-microphone-lines text-primary fs-1 mb-3 opacity-50"></i>
+                        <h6 class="fw-bold">Sube un audio de WhatsApp</h6>
+                        <p class="small text-muted mb-0">Soporta MP3, OGG</p>
+                        <input type="file" id="fileAudio" class="d-none" accept="audio/*" onchange="previewFile('fileAudio', 'audioPreviewName')">
+                        <p id="audioPreviewName" class="text-primary mt-2 fw-bold small"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-grid mt-4">
+                <button id="btnAnalizar" class="btn btn-primary btn-lg btn-analyze text-white">
+                    <i class="fa-solid fa-magnifying-glass me-2"></i> Analizar Veracidad
+                </button>
+            </div>
+        </div>
+
+        <div id="resultsSection" style="display: none;" class="fade-in-up">
+            <div id="verdictCard" class="verdict-card text-center mb-4 position-relative">
+                <div class="verdict-icon mb-2" id="verdictIcon"></div>
+                <h2 class="fw-bold mb-1" id="verdictTitle"></h2>
+                <small class="text-muted">Análisis generado por IA</small>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-7 mb-3">
+                    <h5 class="fw-bold mb-3 small text-uppercase text-muted"><i class="fa-solid fa-robot me-2"></i>Análisis Detallado</h5>
+                    <div class="bg-white p-4 rounded-4 shadow-sm border">
+                        <div id="explanationText" class="card-text text-secondary" style="line-height: 1.7;"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold m-0 small text-uppercase text-muted"><i class="fa-solid fa-newspaper me-2"></i>Fuentes</h5>
+                        <span class="badge bg-light text-dark border" id="evidenceCount">0</span>
+                    </div>
+                    <div id="evidenceList" class="evidence-list"></div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <button onclick="resetSearch()" class="btn btn-outline-secondary rounded-pill px-4">
+                    <i class="fa-solid fa-rotate-left me-2"></i>Nueva Consulta
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function previewFile(inputId, previewId) {
+        const fileInput = document.getElementById(inputId);
+        const preview = document.getElementById(previewId);
+        if (fileInput.files.length > 0) {
+            preview.innerText = "Archivo: " + fileInput.files[0].name;
+        } else {
+            preview.innerText = "";
+        }
+    }
+
+    document.getElementById('btnAnalizar').addEventListener('click', performAnalysis);
+
+    async function performAnalysis() {
+        const activeTab = document.querySelector('.nav-link.active').id;
+
+        if (activeTab === 'pills-text-tab') {
+            const input = document.getElementById('inputAfirmacion');
+            const text = input.value.trim();
+            if (!text) { alert("Escribe algo para analizar."); return; }
+            ejecutarAnalisisTexto(text);
+        } else {
+            const tipo = activeTab === 'pills-image-tab' ? 'Imagen' : 'Audio';
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert(`🚧 MÓDULO ${tipo.toUpperCase()} EN DESARROLLO 🚧\n\nFuncionalidad reservada.`);
+            }, 1000);
+        }
+    }
+
+    async function ejecutarAnalisisTexto(text) {
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        document.getElementById('resultsSection').style.display = 'none';
+
+        try {
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ afirmacion: text })
+            });
+            const data = await response.json();
+            document.getElementById('loadingOverlay').style.display = 'none';
+            if (data.error) { alert(data.error); return; }
+
+            // Render Results
+            const vCard = document.getElementById('verdictCard');
+            vCard.className = `verdict-card text-center mb-4 ${data.veredicto_color_class}`;
+            document.getElementById('verdictTitle').innerText = data.veredicto_texto;
+            
+            let iconHtml = '<i class="fa-solid fa-circle-question text-secondary"></i>';
+            if (data.veredicto_color_class.includes('success')) iconHtml = '<i class="fa-solid fa-circle-check text-success"></i>';
+            else if (data.veredicto_color_class.includes('danger')) iconHtml = '<i class="fa-solid fa-circle-xmark text-danger"></i>';
+            else if (data.veredicto_color_class.includes('warning')) iconHtml = '<i class="fa-solid fa-triangle-exclamation text-warning"></i>';
+            document.getElementById('verdictIcon').innerHTML = iconHtml;
+
+            // --- CORRECCIÓN CLAVE AQUÍ ---
+            // Usamos .innerHTML en lugar de .innerText para que se interpreten los tags <p> y <b>
+            document.getElementById('explanationText').innerHTML = data.mensaje_explicativo; 
+            // -----------------------------
+
+            const listContainer = document.getElementById('evidenceList');
+            listContainer.innerHTML = ''; 
+            document.getElementById('evidenceCount').innerText = data.evidencias.length;
+
+            if (data.evidencias.length === 0) {
+                listContainer.innerHTML = '<div class="alert alert-secondary small text-center">Sin noticias relacionadas.</div>';
+            } else {
+                data.evidencias.forEach(e => {
+                    const nombreFuente = e.fuente || 'Fuente Externa';
+                    const item = document.createElement('a');
+                    item.href = e.url || '#';
+                    item.target = '_blank';
+                    item.className = 'text-decoration-none';
+                    item.innerHTML = `
+                        <div class="evidence-item cursor-pointer">
+                            <span class="badge bg-primary bg-opacity-10 text-primary fw-bold" style="font-size: 0.7rem;">${nombreFuente}</span>
+                            <h6 class="text-dark fw-bold mb-0 text-truncate mt-1">${e.titulo || 'Noticia'}</h6>
+                            <p class="small text-muted mb-0 text-truncate">${(e.resumen || '').substring(0, 50)}...</p>
+                        </div>`;
+                    listContainer.appendChild(item);
+                });
+            }
+            document.getElementById('resultsSection').style.display = 'block';
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById('loadingOverlay').style.display = 'none';
+            alert("Error de conexión.");
+        }
+    }
+
+    function resetSearch() {
+        document.getElementById('inputAfirmacion').value = '';
+        document.getElementById('resultsSection').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 {% endblock %}
